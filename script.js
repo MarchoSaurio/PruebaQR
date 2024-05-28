@@ -8,7 +8,7 @@ document.getElementById('reservation-form').addEventListener('submit', function(
     const people = encodeURIComponent(document.getElementById('people').value);
 
     // Crear la URL con los datos
-    const url = `${window.location.origin}/confirmacion.html?name=${name}&date=${date}&time=${time}&people=${people}`;
+    const url = `https://marchosaurio.github.io/PruebaQR/confirmacion.html?name=${name}&date=${date}&time=${time}&people=${people}`;
 
     // Generar el QR
     const qrCodeContainer = document.getElementById('qrcode');
@@ -21,4 +21,9 @@ document.getElementById('reservation-form').addEventListener('submit', function(
     });
 
     qrCode.append(qrCodeContainer);
+
+    // Redireccionar al usuario a la página de confirmación después de 3 segundos
+    setTimeout(() => {
+        window.location.href = url;
+    }, 3000); // Cambiar a 3000 (3 segundos) según tus preferencias
 });
